@@ -1,20 +1,20 @@
 {
-    "name"         : "jquery-tokeninput",
-    "version"      : "1.6.2",
-    "description"  : "Tokeninput is a jQuery plugin which allows your users to select multiple items from a predefined list, using autocompletion as they type to find each item.",
-    "main"         : [ "./src/jquery.tokeninput.js", "./styles/token-input.css" ],
-    "homepage"     : "http://loopj.com/jquery-tokeninput",
+    "name"         : "jquery-autocomplete",
+    "version"      : "0.1.0",
+    "description"  : "A jQuery plugin which allows your users to select items from a predefined list or remote source, using autocompletion as they type to find each item.",
+    "main"         : [ "./src/jquery.autocomplete.js", "./styles/autocomplete.css" ],
+    "homepage"     : "https://github.com/bk-az/jquery-autocomplete",
     "dependencies" : {
         "jquery" : ">= 1.5.x"
     },
     "keywords"     : [
-        "tokeninput",
+        "autocomplete",
         "input",
         "autocomplete"
     ],
     "author" : {
-        "name" : "James Smith",
-        "web"  : "http://loopj.com"
+        "name" : "Abubakar Azeem",
+        "web"  : "https://github.com/bk-az"
     },
     "license": [
         "http://www.opensource.org/licenses/mit-license.php",

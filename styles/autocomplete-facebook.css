@@ -1,0 +1,51 @@
+/* Example autocomplete style #2: Facebook style */
+div.autocomplete-dropdown-facebook {
+    position: absolute;
+    width: 400px;
+    background-color: #fff;
+    overflow: hidden;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    cursor: default;
+    font-size: 11px;
+    font-family: Verdana, sans-serif;
+    z-index: 1;
+}
+
+div.autocomplete-dropdown-facebook p {
+    margin: 0;
+    padding: 5px;
+    font-weight: bold;
+    color: #777;
+}
+
+div.autocomplete-dropdown-facebook ul {
+    margin: 0;
+    padding: 0;
+}
+
+div.autocomplete-dropdown-facebook ul li {
+    background-color: #fff;
+    padding: 3px;
+    margin: 0;
+    list-style-type: none;
+}
+
+div.autocomplete-dropdown-facebook ul li.autocomplete-dropdown-item-facebook {
+    background-color: #fff;
+}
+
+div.autocomplete-dropdown-facebook ul li.autocomplete-dropdown-item2-facebook {
+    background-color: #fff;
+}
+
+div.autocomplete-dropdown-facebook ul li em {
+    font-weight: bold;
+    font-style: normal;
+}
+
+div.autocomplete-dropdown-facebook ul li.autocomplete-selected-dropdown-item-facebook {
+    background-color: #3b5998;
+    color: #fff;
+}

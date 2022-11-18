@@ -1,10 +1,10 @@
 <html>
 <head>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript" src="src/jquery.tokeninput.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="src/jquery.autocomplete.js"></script>
 
-    <link rel="stylesheet" href="styles/token-input.css" type="text/css" />
-    <link rel="stylesheet" href="styles/token-input-facebook.css" type="text/css" />
+    <link rel="stylesheet" href="styles/autocomplete.css" type="text/css" />
+    <link rel="stylesheet" href="styles/autocomplete-facebook.css" type="text/css" />
 
     <script type="text/javascript">
     $(document).ready(function() {
@@ -16,7 +16,7 @@
 </head>
 
 <body style="margin-bottom: 200px;">
-    <h1>jQuery Tokeninput Demos</h1>
+    <h1>jQuery AutoComplete Demos</h1>
 
     <h2>Simple Server-Backed Search</h2>
     <div>
@@ -24,7 +24,7 @@
         <input type="button" value="Submit" />
         <script type="text/javascript">
         $(document).ready(function() {
-            $("#demo-input").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php");
+            $("#demo-input").autoComplete("https://api.github.com/search/repositories", { dataPath: ['data', 'items'] });
         });
         </script>
     </div>
@@ -36,7 +36,7 @@
         <input type="button" value="Submit" />
         <script type="text/javascript">
         $(document).ready(function() {
-            $("#demo-input-local").tokenInput([
+            $("#demo-input-local").autoComplete([
                 {id: 7, name: "Ruby"},
                 {id: 11, name: "Python"},
                 {id: 13, name: "JavaScript"},
@@ -61,8 +61,9 @@
         <input type="button" value="Submit" />
         <script type="text/javascript">
         $(document).ready(function() {
-            $("#demo-input-facebook-theme").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
-                theme: "facebook"
+            $("#demo-input-facebook-theme").autoComplete("https://api.github.com/search/repositories", {
+                theme: "facebook",
+                dataPath: ['data', 'items']
             });
         });
         </script>
@@ -75,110 +76,31 @@
         <input type="button" value="Submit" />
         <script type="text/javascript">
         $(document).ready(function() {
-            $("#demo-input-custom-labels").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+            $("#demo-input-custom-labels").autoComplete("https://api.github.com/search/repositories", {
                 hintText: "I can has tv shows?",
                 noResultsText: "O noes",
-                searchingText: "Meowing..."
+                searchingText: "Meowing...",
+                dataPath: ['data', 'items']
             });
         });
         </script>
     </div>
 
 
-    <h2 id="custom-delete">Custom Delete Icon</h2>
-    <div>
-        <input type="text" id="demo-input-custom-delete" name="blah" />
-        <input type="button" value="Submit" />
-        <script type="text/javascript">
-        $(document).ready(function() {
-            $("#demo-input-custom-delete").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
-                deleteText: "&#x2603;"
-            });
-        });
-        </script>
-    </div>
-
-
-    <h2 id="custom-limits">Custom Search Delay, Search Limit &amp; Token Limit</h2>
+    <h2 id="custom-limits">Custom Search Delay &amp; Search Limit</h2>
     <div>
         <input type="text" id="demo-input-custom-limits" name="blah" />
         <input type="button" value="Submit" />
         <script type="text/javascript">
         $(document).ready(function() {
-            $("#demo-input-custom-limits").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+            $("#demo-input-custom-limits").autoComplete("https://api.github.com/search/repositories", {
                 searchDelay: 2000,
                 minChars: 4,
-                tokenLimit: 3
+                dataPath: ['data', 'items']
             });
         });
         </script>
     </div>
-
-
-    <h2 id="prevent-custom-delimiter">Custom Token Delimiter</h2>
-    <div>
-        <input type="text" id="demo-input-custom-delimiter" name="blah" />
-        <input type="button" value="Submit" />
-        <script type="text/javascript">
-        $(document).ready(function() {
-            $("#demo-input-custom-delimiter").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
-                tokenDelimiter: "|"
-            });
-        });
-        </script>
-    </div>
-
-
-    <h2 id="prevent-duplicates">No Duplicates</h2>
-    <div>
-        <input type="text" id="demo-input-prevent-duplicates" name="blah" />
-        <input type="button" value="Submit" />
-        <script type="text/javascript">
-        $(document).ready(function() {
-            $("#demo-input-prevent-duplicates").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
-                preventDuplicates: true
-            });
-        });
-        </script>
-    </div>
-
-
-    <h2 id="pre-populated">Pre-populated</h2>
-    <div>
-        <input type="text" id="demo-input-pre-populated" name="blah" />
-        <input type="button" value="Submit" />
-        <script type="text/javascript">
-        $(document).ready(function() {
-            $("#demo-input-pre-populated").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
-                prePopulate: [
-                    {id: 123, name: "Slurms MacKenzie"},
-                    {id: 555, name: "Bob Hoskins"},
-                    {id: 9000, name: "Kriss Akabusi"}
-                ]
-            });
-        });
-        </script>
-    </div>
-
-
-    <h2 id="pre-populated-with-tokenlimit">Pre-populated &amp; Token Limit</h2>
-    <div>
-        <input type="text" id="demo-input-pre-populated-with-tokenlimit" name="blah" />
-        <input type="button" value="Submit" />
-        <script type="text/javascript">
-        $(document).ready(function() {
-            $("#demo-input-pre-populated-with-tokenlimit").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
-                prePopulate: [
-                    {id: 123, name: "Slurms MacKenzie"},
-                    {id: 555, name: "Bob Hoskins"},
-                    {id: 9000, name: "Kriss Akabusi"}
-                ],
-                tokenLimit: 3
-            });
-        });
-        </script>
-    </div>
-
 
     <h2 id="disable-animation">Disable Animation on Dropdown</h2>
     <div>
@@ -186,8 +108,9 @@
         <input type="button" value="Submit" />
         <script type="text/javascript">
         $(document).ready(function() {
-            $("#demo-input-disable-animation").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
-                animateDropdown: false
+            $("#demo-input-disable-animation").autoComplete("https://api.github.com/search/repositories", {
+                animateDropdown: false,
+                dataPath: ['data', 'items']
             });
         });
         </script>
@@ -200,86 +123,70 @@
         <input type="button" value="Submit" />
         <script type="text/javascript">
         $(document).ready(function() {
-            $("#demo-input-onresult").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+            $("#demo-input-onresult").autoComplete("https://api.github.com/search/repositories", {
                 onResult: function (results) {
                     $.each(results, function (index, value) {
                         value.name = "OMG: " + value.name;
                     });
 
                     return results;
-                }
-            });
-        });
-        </script>
-    </div>
-
-
-    <h2 id="onadd-ondelete">Using onAdd and onDelete Callbacks</h2>
-    <div>
-        <input type="text" id="demo-input-onadd-ondelete" name="blah" />
-        <input type="button" value="Submit" />
-        <script type="text/javascript">
-        $(document).ready(function() {
-            $("#demo-input-onadd-ondelete").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
-                onAdd: function (item) {
-                    alert("Added " + item.name);
                 },
-                onDelete: function (item) {
-                    alert("Deleted " + item.name);
-                }
+                dataPath: ['data', 'items']
             });
         });
         </script>
     </div>
 
+    <h2 id="onadd-ondelete">Using onAutoComplete Callback</h2>
+        <div>
+            <input type="text" id="demo-input-onadd-ondelete" name="blah" />
+            <input type="button" value="Submit" />
+            <script type="text/javascript">
+            $(document).ready(function() {
+                $("#demo-input-onadd-ondelete").autoComplete("https://api.github.com/search/repositories", {
+                    onAutoComplete: function (item) {
+                        alert("AutoCompleted " + item.name);
+                    },
+                    dataPath: ['data', 'items']
+                });
+            });
+            </script>
+        </div>
 
-    <h2 id="plugin-methods">Using the add, remove, clear and toggleDisabled Methods</h2>
+
+    <h2 id="plugin-methods">Using the clear and toggleDisabled Methods</h2>
     <div>
-      <a href="#" id="plugin-methods-add">Add Token</a> |
-      <a href="#" id="plugin-methods-remove">Remove Token</a> |
-      <a href="#" id="plugin-methods-clear">Clear Tokens</a> |
+      <a href="#" id="plugin-methods-clear">Clear</a> |
       <a href="#" id="plugin-methods-toggle-disable">Toggle Disabled</a><br />
         <input type="text" id="demo-input-plugin-methods" name="blah" />
         <input type="button" value="Submit" />
         <script type="text/javascript">
         $(document).ready(function() {
-            $("#demo-input-plugin-methods").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php");
-
-            // Add a token programatically
-            $("#plugin-methods-add").click(function () {
-                $("#demo-input-plugin-methods").tokenInput("add", {id: 999, name: "James was here"});
-                return false;
-            });
-
-            // Remove a token programatically
-            $("#plugin-methods-remove").click(function () {
-                $("#demo-input-plugin-methods").tokenInput("remove", {name: "James was here"});
-                return false;
-            });
+            $("#demo-input-plugin-methods").autoComplete("https://api.github.com/search/repositories", { dataPath: ['data', 'items'] });
 
             // Clear all tokens
             $("#plugin-methods-clear").click(function () {
-                $("#demo-input-plugin-methods").tokenInput("clear");
+                $("#demo-input-plugin-methods").autoComplete("clear");
                 return false;
             });
 
 
             // Toggle Disable / Enable the widget
             $("#plugin-methods-toggle-disable").click(function () {
-                $("#demo-input-plugin-methods").tokenInput("toggleDisabled");
+                $("#demo-input-plugin-methods").autoComplete("toggleDisabled");
                 return false;
             });
         });
         </script>
     </div>
 
-    <h2>Local Data Search with custom propertyToSearch, resultsFormatter and tokenFormatter</h2>
+    <h2>Local Data Search with custom propertyToSearch, resultsFormatter</h2>
     <div>
         <input type="text" id="demo-input-local-custom-formatters" name="blah" />
         <input type="button" value="Submit" />
         <script type="text/javascript">
         $(document).ready(function() {
-            $("#demo-input-local-custom-formatters").tokenInput([{
+            $("#demo-input-local-custom-formatters").autoComplete([{
                 "first_name": "Arthur",
                 "last_name": "Godfrey",
                 "email": "arthur_godfrey@nccu.edu",
@@ -449,8 +356,7 @@
             }
           ], {
               propertyToSearch: "first_name",
-              resultsFormatter: function(item){ return "<li>" + "<img src='" + item.url + "' title='" + item.first_name + " " + item.last_name + "' height='25px' width='25px' />" + "<div style='display: inline-block; padding-left: 10px;'><div class='full_name'>" + item.first_name + " " + item.last_name + "</div><div class='email'>" + item.email + "</div></div></li>" },
-              tokenFormatter: function(item) { return "<li><p>" + item.first_name + " " + item.last_name + "</p></li>" }
+              resultsFormatter: function(item){ return "<li>" + "<img src='" + item.url + "' title='" + item.first_name + " " + item.last_name + "' height='25px' width='25px' />" + "<div style='display: inline-block; padding-left: 10px;'><div class='full_name'>" + item.first_name + " " + item.last_name + "</div><div class='email'>" + item.email + "</div></div></li>" }
           });
         });
         </script>
@@ -467,10 +373,10 @@
         <script type="text/javascript">
         $(document).ready(function() {
             $('input[name="search_key"]').click(function() {
-              $("#demo-input-change-propertytosearch-anytime").tokenInput("setOptions", {propertyToSearch: $(this).val(), hintText: "Type "+$(this).val()+" here to search"});
+              $("#demo-input-change-propertytosearch-anytime").autoComplete("setOptions", {propertyToSearch: $(this).val(), hintText: "Type "+$(this).val()+" here to search"});
             });
 
-            $("#demo-input-change-propertytosearch-anytime").tokenInput([{
+            $("#demo-input-change-propertytosearch-anytime").autoComplete([{
                 "id": 1,
                 "first_name": "Arthur",
                 "last_name": "Godfrey",
@@ -668,8 +574,7 @@
             }
           ], {
               propertyToSearch: "first_name",
-              resultsFormatter: function(item){ return "<li>" + "<img src='" + item.url + "' title='" + item.first_name + " " + item.last_name + "' height='25px' width='25px' />" + "<div style='display: inline-block; padding-left: 10px;'><div class='first_name'>" + item.first_name + " " + item.last_name + "</div><div class='email'>" + item.email + "</div><div class='url'>" + item.url + "</div></div></li>" },
-              tokenFormatter: function(item) { return "<li><p>" + item.first_name + " " + item.last_name + "</p></li>" }
+              resultsFormatter: function(item){ return "<li>" + "<img src='" + item.url + "' title='" + item.first_name + " " + item.last_name + "' height='25px' width='25px' />" + "<div style='display: inline-block; padding-left: 10px;'><div class='first_name'>" + item.first_name + " " + item.last_name + "</div><div class='email'>" + item.email + "</div><div class='url'>" + item.url + "</div></div></li>" }
           });
         });
         </script>
@@ -681,7 +586,7 @@
         <input type="button" value="Submit" />
         <script type="text/javascript">
         $(document).ready(function() {
-            $("#demo-input-disabled").tokenInput([
+            $("#demo-input-disabled").autoComplete([
                 {id: 7, name: "Ruby"},
                 {id: 11, name: "Python"},
                 {id: 13, name: "JavaScript"},
@@ -695,54 +600,9 @@
                 {id: 43, name: "C++"},
                 {id: 47, name: "Java"}
             ], {
-                disabled: true,
-                prePopulate: [
-                    {id: 123, name: "Slurms MacKenzie"},
-                    {id: 555, name: "Bob Hoskins"},
-                    {id: 9000, name: "Kriss Akabusi"}
-                ]
+                disabled: true
             });
         });
-        </script>
-    </div>
-
-
-    <h2>Free Tagging</h2>
-    <div>
-        <input type="text" id="demo-input-free-tagging" name="blah" />
-        <input type="button" value="Submit" />
-        <script type="text/javascript">
-        $(document).ready(function() {
-            $("#demo-input-free-tagging").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
-                allowFreeTagging: true
-            });
-        });
-        </script>
-    </div>
-
-    <h2>Exclude Current Tokens From Autocomplete</h2>
-    <div>
-        <input type="text" id="demo-input-local-exclude" name="blah" />
-        <input type="button" value="Submit" />
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $("#demo-input-local-exclude").tokenInput([
-                    {id: 7, name: "Ruby"},
-                    {id: 11, name: "Python"},
-                    {id: 13, name: "JavaScript"},
-                    {id: 17, name: "ActionScript"},
-                    {id: 19, name: "Scheme"},
-                    {id: 23, name: "Lisp"},
-                    {id: 29, name: "C#"},
-                    {id: 31, name: "Fortran"},
-                    {id: 37, name: "Visual Basic"},
-                    {id: 41, name: "C"},
-                    {id: 43, name: "C++"},
-                    {id: 47, name: "Java"}
-                ], {
-                    excludeCurrent: true
-                });
-            });
         </script>
     </div>
 

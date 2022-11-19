@@ -6,5 +6,22 @@
     "grunt-contrib-jshint": "~0.6.3",
     "grunt-contrib-nodeunit": "~0.2.0",
     "grunt-contrib-uglify": "~0.3.2"
-  }
+  },
+  "description": "jQuery Autocomplete is a jQuery plugin, once initialized on a text field it allows you to select items from a predefined list or from a remote source, using autocomplete as you type to find an item. If you are already familiar with jquery-tokeninput, then it's the same thing.",
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bk-az/jquery-autocomplete.git"
+  },
+  "keywords": [
+    "autocomplete",
+    "search",
+    "jquery"
+  ],
+  "author": "Abubakar Azeem",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bk-az/jquery-autocomplete/issues"
+  },
+  "homepage": "https://github.com/bk-az/jquery-autocomplete#readme"
 }

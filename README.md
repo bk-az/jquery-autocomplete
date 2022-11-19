@@ -7,6 +7,17 @@ Overview
 --------
 jQuery Autocomplete is a jQuery plugin, once initialized on a text field it allows you to select items from a predefined list or from a remote source, using autocomplete as you type to find an item. If you are already familiar with jquery-tokeninput, then it's the same thing.
 
+Install
+--------
+Install with NPM
+```sh
+npm i jquery.lite.autocomplete
+```
+
+Or you can directy put files in your project, i.e [js file](jquery.autocomplete.js) and [css file](styles/autocomplete.css)
+
+
+
 Quick Start
 --------
 For a simple server-backed search, just define an endpiont that returns json Array in this format:

@@ -5,7 +5,7 @@
   "main": "jquery.autocomplete.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bk-az/jquery-autocomplete.git"
+    "url": "git+https://github.com/bk-az/jquery-lite-autocomplete.git"
   },
   "keywords": [
     "autocomplete",
@@ -15,7 +15,7 @@
   "author": "Abubakar Azeem",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bk-az/jquery-autocomplete/issues"
+    "url": "https://github.com/bk-az/jquery-lite-autocomplete/issues"
   },
-  "homepage": "https://github.com/bk-az/jquery-autocomplete#readme"
+  "homepage": "https://github.com/bk-az/jquery-lite-autocomplete#readme"
 }
